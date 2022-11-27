@@ -1,0 +1,31 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class HomeTaskOne {
+
+    public static void main(String[] args) {
+        int[] num1 = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] num2 = {0, 1, 2, 0, 5, 3, 2, 1, 3};
+        System.out.println("Первый массив " + Arrays.toString(num1));
+        System.out.println("Второй массив " + Arrays.toString(num2));
+        System.out.println("Разница двух  массивов " + differenceArray(num1, num2));
+    }
+
+    public static ArrayList<Integer> differenceArray(int[] numbers1, int[] numbers2) {
+        ArrayList<Integer> res = new ArrayList<>();
+        int min = Math.min(numbers1.length, numbers2.length);
+        int max = Math.max(numbers2.length, numbers2.length);
+        if (min < 1) {
+            throw new RuntimeException("Один из массивов пуст");
+        }
+        if (min < max) {
+            throw new RuntimeException("Длинны массивов не равны!");
+        }
+        for (int i = 0; i < min; i++) {
+            res.add(numbers1[i] - numbers2[i]);
+        }
+        return res;
+    }
+
+
+}
